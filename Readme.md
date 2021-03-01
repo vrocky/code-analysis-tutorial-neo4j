@@ -125,7 +125,7 @@ delete r
 Match (c1:Class)
 Match(c2:Class)
 Match (c1)-[r:USES]->(c2)
-with c1,c2,sum(r.method_call) as method_call_count, sum(r.mm_call) as mm_call_count, sum(r.ms_call) as ms_call_count, sum(r.sm_call) as sm_call_count, sum(r.ss_call) as ss_call_count MERGE (c1)-[r:METHOD_CALLS_TO]->(c2)
+with c1,c2,sum(r.method_call) as method_call_count, sum(r.mm_call) as mm_call_count, sum(r.ms_call) as ms_call_count, sum(r.sm_call) as sm_call_count, sum(r.ss_call) as ss_call_count MERGE (c1)-[r:METHOD_CALLS_TO {mm_call:mm_call_count , ms_call:ms_call_count, sm_call:sm_call_count, ss_call:ss_call_count} ]->(c2)
 ```
 
 ```
